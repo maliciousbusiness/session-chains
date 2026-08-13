@@ -1,0 +1,19 @@
+proto: https
+repeat_after: 0
+proxy: http://localhost:8080
+
+requests:
+
+- request_file: r1.req
+  extract:
+  - key: .login-form > input:nth-child(1) .value
+    strat: cssselect
+    variable: CSRF
+
+- request_file: r2.req
+  extract:
+  - key: .login-form > input:nth-child(1) .value
+    strat: cssselect
+    variable: CSRF
+
+- request_file: r3.req

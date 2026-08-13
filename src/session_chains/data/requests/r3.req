@@ -1,0 +1,20 @@
+POST /login HTTP/2
+Host: ginandjuice.shop
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
+Cookie: AWSALB=kSylY22kU7YztgxN2lJ6SipQlO2iQq0pfJRzgbrx/p74/CD5C64+aC/plt5sHg2U8v7qXdnOEMd8qqKdBhQHdKqaYz6mRTmzr6m/26knw/5pw2YjRjXaqmfxFsi3; bar=baz; AWSALBCORS=kSylY22kU7YztgxN2lJ6SipQlO2iQq0pfJRzgbrx/p74/CD5C64+aC/plt5sHg2U8v7qXdnOEMd8qqKdBhQHdKqaYz6mRTmzr6m/26knw/5pw2YjRjXaqmfxFsi3; session=6Dsc1GX8NdGmw0SnNN5ym
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 70
+Origin: https://ginandjuice.shop
+Referer: https://ginandjuice.shop/login
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Priority: u=0, i
+Te: trailers
+
+csrf={{CSRF}}&username={{USERNAME}}&password={{PASSWORD}}

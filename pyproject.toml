@@ -1,0 +1,45 @@
+[project]
+name = "session-chains"
+version = "1.0.0"
+description = "Automate authentication workflows to maintain authenticated sessions for multiple users during web application security testing."
+authors = [
+    {name = "Kai Glauber", email = "Kai.Glauber@usd.de"}
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.12"
+
+keywords = [
+    "security",
+    "pentesting",
+    "authentication",
+    "burp-suite",
+    "session-management"
+]
+
+dependencies = [
+    "typer (>=0.16.1,<0.17.0)",
+    "httptools (>=0.6.4,<0.7.0)",
+    "httpx[http2] (>=0.28.1,<0.29.0)",
+    "pyyaml (>=6.0.2,<7.0.0)",
+    "beautifulsoup4 (>=4.13.4,<5.0.0)",
+    "jq (>=1.10.0,<2.0.0)",
+    "pyotp (>=2.9.0,<3.0.0)",
+    "prompt_toolkit (>=3.0.52,<3.0.53)"
+]
+
+[project.urls]
+Homepage = "https://github.com/usdag/session-chains"
+Repository = "https://github.com/usdag/session-chains"
+Issues = "https://github.com/usdag/session-chains/issues"
+
+[tool.poetry]
+packages = [{include = "session_chains", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+session-chains = "session_chains:app"
+

@@ -1,0 +1,29 @@
+# Low priv accounts
+- name: lowpriv1
+  variables:
+    USERNAME: carlos
+    PASSWORD: hunter2
+# - name: lowpriv2
+#   variables:
+#     USERNAME: user2@example.com
+#     PASSWORD: password123
+#
+# # Staff accounts
+# - name: staff1
+#   variables:
+#     USERNAME: user3@example.com
+#     PASSWORD: password123
+# - name: staff2
+#   variables:
+#     USERNAME: user4@example.com
+#     PASSWORD: password123
+#
+# # Admin accounts
+# - name: admin1
+#   variables:
+#     USERNAME: user5@example.com
+#     PASSWORD: password123
+# - name: admin2
+#   variables:
+#     USERNAME: user6@example.com
+#     PASSWORD: password123

@@ -1,0 +1,182 @@
+[
+    {
+        "version": "1.3.6"
+    },
+    [
+        [
+            {
+                "lane_title": "Role overview"
+            },
+            {
+                "operation": "de.usd.cstchef.operations.utils.StoreVariable",
+                "parameters": {
+                    "Variable name": "original_request"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.string.StaticString",
+                "parameters": {
+                    "Value": "undefined"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.utils.StoreVariable",
+                "parameters": {
+                    "Variable name": "role"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.string.StaticString",
+                "parameters": {
+                    "Value": "unauth"
+                },
+                "is_enabled": true,
+                "comment": null
+            }
+
+        ],
+        [
+            {
+                "lane_title": "Pwnfox Integration"
+            },
+            {
+                "operation": "de.usd.cstchef.operations.conditional.RegexMatch",
+                "parameters": {
+                    "Skip # Operations in Current Lane": "5",
+                    "Expr": "[Xx]-[Pp]wnfox-[Cc]olor: (.*)",
+                    "Skip # Following Lanes": "0",
+                    "Find anywhere": true,
+                    "Invert Match": true 
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.extractors.RegexExtractor",
+                "parameters": {
+                    "Regex": "[Xx]-[Pp]wnfox-[Cc]olor: ([^\\s]*)",
+                    "Output format": "List capture groups"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.utils.StoreVariable",
+                "parameters": {
+                    "Variable name": "color"
+                },
+                "is_enabled": true,
+                "comment": null
+            }
+        ],
+        [
+            {
+                "lane_title": "Role Selection"
+            },
+            {
+                "operation": "de.usd.cstchef.operations.conditional.RegexMatch",
+                "parameters": {
+                    "Skip # Operations in Current Lane": "5",
+                    "Expr": "X-Ignore-Chain: (.*)",
+                    "Skip # Following Lanes": "2",
+                    "Find anywhere": true,
+                    "Invert Match": false
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.conditional.RegexMatch",
+                "parameters": {
+                    "Skip # Operations in Current Lane": "2",
+                    "Expr": "X-Pentest-Role: (.*)",
+                    "Skip # Following Lanes": "0",
+                    "Find anywhere": true,
+                    "Invert Match": true
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.extractors.RegexExtractor",
+                "parameters": {
+                    "Regex": "X-Pentest-Role: ([^\\s]*)",
+                    "Output format": "List capture groups"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.utils.StoreVariable",
+                "parameters": {
+                    "Variable name": "role"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.utils.GetVariable",
+                "parameters": {
+                    "Variable name": "role",
+                    "Default value": "undefined"
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.conditional.RegexMatch",
+                "parameters": {
+                    "Skip # Operations in Current Lane": "0",
+                    "Expr": "undefined",
+                    "Skip # Following Lanes": "2",
+                    "Find anywhere": true,
+                    "Invert Match": false
+                },
+                "is_enabled": true,
+                "comment": null
+            },
+            {
+                "operation": "de.usd.cstchef.operations.utils.GetVariable",
+                "parameters": {
+                    "Variable name": "original_request",
+                    "Default value": ""
+                },
+                "is_enabled": true,
+                "comment": null
+            }
+        ],
+        [
+            {
+                "lane_title": "Load Variables"
+            }
+        ],
+        [
+            {
+                "lane_title": "Expose Variables"
+            },
+            {
+                "operation": "de.usd.cstchef.operations.setter.HttpHeaderSetter",
+                "parameters": {
+                    "checkbox1": true,
+                    "Value": "$role",
+                    "Key": "X-Pentest-Role"
+                },
+                "is_enabled": true,
+                "comment": null
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+]
