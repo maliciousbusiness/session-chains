@@ -281,3 +281,14 @@ def append_role(value: str, ctx: UserContext):
 The user context allows access to the role, all variables, and credentials.
 
 You can use the filter in the request template like this: `{{ variable|append_role }}`.
+
+
+# Contributing
+
+Contributions are welcome and appreciated. If you would like to improve the project, please create a feature branch in your fork and submit a Pull Request with your proposed changes.
+
+All contributions are reviewed before being merged into the main branch. To ensure code quality, stability, and traceability, branch protection is enabled for the main branch. Direct pushes to main are not permitted. Instead, all changes must be submitted through a Merge Request and successfully pass the review process before they can be merged.
+
+When creating a contribution, please keep changes focused, provide a clear description of the problem being solved, and include any relevant documentation or tests where appropriate. Constructive discussions and feedback are encouraged throughout the review process.
+
+Thank you for helping improve the project.
